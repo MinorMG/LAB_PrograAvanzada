@@ -118,14 +118,15 @@ namespace LabG9.Controllers
             var clienteId = User.Identity.GetUserId();
             var cliente = context.Users.FirstOrDefault(u => u.Id == clienteId);
             var metodoPago = Session["MetodoPago"].ToString();
-
+            decimal total = carrito.Sum(c => c.Cantidad * c.PrecioUnitario);
             var factura = new Factura
             {
                 ClienteId = clienteId,
                 FechaPedido = DateTime.Now,
                 DireccionEntrega = cliente.direccionEntrega,
                 MetodoPago = metodoPago,
-                Estado = "Pendiente"
+                Estado = "Pendiente",
+                totalFactura = total
             };
 
             context.Facturas.Add(factura);

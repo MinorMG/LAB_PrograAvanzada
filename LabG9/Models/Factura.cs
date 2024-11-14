@@ -21,6 +21,8 @@ namespace LabG9.Models
 
         public string MetodoPago {  get; set; }
 
+        public decimal totalFactura {  get; set; }
+
         public string Estado { get; set; }
 
       

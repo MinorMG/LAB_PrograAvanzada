@@ -178,29 +178,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202411140250107_LabG9_1.cs" />
-    <Compile Include="Migrations\202411140250107_LabG9_1.Designer.cs">
-      <DependentUpon>202411140250107_LabG9_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411140344444_lab9_g2.cs" />
-    <Compile Include="Migrations\202411140344444_lab9_g2.Designer.cs">
-      <DependentUpon>202411140344444_lab9_g2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411140552534_Lab_g9.cs" />
-    <Compile Include="Migrations\202411140552534_Lab_g9.Designer.cs">
-      <DependentUpon>202411140552534_Lab_g9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411141919518_Lab_g9_2.cs" />
-    <Compile Include="Migrations\202411141919518_Lab_g9_2.Designer.cs">
-      <DependentUpon>202411141919518_Lab_g9_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411142024449_Lab_g9_3.cs" />
-    <Compile Include="Migrations\202411142024449_Lab_g9_3.Designer.cs">
-      <DependentUpon>202411142024449_Lab_g9_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202411142117383_Lab_g9_31.cs" />
-    <Compile Include="Migrations\202411142117383_Lab_g9_31.Designer.cs">
-      <DependentUpon>202411142117383_Lab_g9_31.cs</DependentUpon>
+    <Compile Include="Migrations\202411142244445_InitialCreate.cs" />
+    <Compile Include="Migrations\202411142244445_InitialCreate.Designer.cs">
+      <DependentUpon>202411142244445_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -326,23 +306,8 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202411140250107_LabG9_1.resx">
-      <DependentUpon>202411140250107_LabG9_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411140344444_lab9_g2.resx">
-      <DependentUpon>202411140344444_lab9_g2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411140552534_Lab_g9.resx">
-      <DependentUpon>202411140552534_Lab_g9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411141919518_Lab_g9_2.resx">
-      <DependentUpon>202411141919518_Lab_g9_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411142024449_Lab_g9_3.resx">
-      <DependentUpon>202411142024449_Lab_g9_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202411142117383_Lab_g9_31.resx">
-      <DependentUpon>202411142117383_Lab_g9_31.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202411142244445_InitialCreate.resx">
+      <DependentUpon>202411142244445_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

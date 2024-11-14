@@ -25,10 +25,10 @@ namespace LabG9.Models
 
                 }
             }
-            var adminUser = new ApplicationUser { UserName = "adminTienda@gmail.com", Email = "adminTienda@gmail.com" };
+            var adminUser = new ApplicationUser { UserName = "adminTienda@gmail.com", Email = "adminTienda@gmail.com"};
             string Contraseña = "Admin123";
 
-            if (userManager.FindByEmail(adminUser.Email) != null)
+            if (userManager.FindByEmail(adminUser.Email) == null)
             {
                 var creacion = userManager.Create(adminUser, Contraseña);
                 if (creacion.Succeeded)
