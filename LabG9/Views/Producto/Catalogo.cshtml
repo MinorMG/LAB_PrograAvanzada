@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LabG9.Models.Producto>
+
+@{
+    ViewBag.Title = "Catálogo de Productos";
+}
+
+<h2>Catálogo de Productos</h2>
+
+@if (!Model.Any())
+{
+    <div class="container col-6 my-4">
+        <div class="justify-content-center">
+            <h2>No hay Productos disponibles.</h2>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 my-3">
+                  <div class="card">
+                      <div class="card-img-container" style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+                          <img src="@item.ImagenUrl" alt="Imagen del producto" class="card-img-top img-fluid" style="max-width: 70%; height: auto; object-fit: contain;">
+                      </div>
+                      <div class="card-body">
+                          <h5 class="card-title">@item.Nombre</h5>
+                          <p class="card-text">@item.Descripcion</p>
+                          <p class="card-text"><strong>Categoría:</strong> @item.Categoria.NombreCategoria</p>
+                          <p class="card-text"><strong>Precio:</strong> @item.Precio.ToString("C")</p>
+                          <p class="card-text"><strong>Cantidad disponible:</strong> @item.cantidad</p>
+                          <form action="@Url.Action("AgregarAlCarrito", "Carrito")" method="post">
+                              <input type="hidden" name="idProducto" value="@item.IdProducto" />
+                              <button type="submit" class="btn btn-primary">Agregar al Carrito</button>
+                          </form>
+                      </div>
+                  </div>
+                </div>
+            }
+        </div>
+    </div>
+}

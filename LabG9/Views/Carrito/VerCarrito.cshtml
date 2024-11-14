@@ -1,0 +1,31 @@
+﻿@model List<LabG9.Models.DetalleFactura>
+
+<h2>Carrito de Compras</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Producto.Nombre</td>
+                <td>@item.PrecioUnitario</td>
+                <td>@item.Cantidad</td>
+                <td>@(item.Cantidad * item.PrecioUnitario)</td>
+                <td>
+                    @Html.ActionLink("Eliminar", "EliminarDelCarrito", new { idProducto = item.IdProducto }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Catalogo", "Producto")" class="btn btn-primary">Seguir Comprando</a>
+<a href="@Url.Action("SeleccionarMetodoPago", "Carrito")" class="btn btn-success">Confirmar Compra</a>

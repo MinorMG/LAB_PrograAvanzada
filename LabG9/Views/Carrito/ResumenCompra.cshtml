@@ -1,0 +1,42 @@
+﻿@model LabG9.Models.Factura
+
+@{
+    ViewBag.Title = "Resumen de Compra";
+}
+
+<h2>Resumen de Compra</h2>
+
+<div class="container">
+    <h4>Factura ID: @Model.IdFactura</h4>
+    <h4>Cliente: @ViewBag.Nombre</h4>
+    <h4>Fecha de Pedido: @Model.FechaPedido</h4>
+    <h4>Dirección de Entrega: @Model.DireccionEntrega</h4>
+    <h4>Método de Pago: @Model.MetodoPago</h4>
+    <h4>Estado: @Model.Estado</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in Model.DetalleFactura)
+            {
+                <tr>
+                    <td>@detalle.Producto.Nombre</td>
+                    <td>@detalle.Cantidad</td>
+                    <td>@detalle.PrecioUnitario.ToString("C")</td>
+                    <td>@(detalle.Cantidad * detalle.PrecioUnitario)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4>Total: @Model.DetalleFactura.Sum(d => d.Cantidad * d.PrecioUnitario)</h4>
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Volver al Inicio</a>
+</div>

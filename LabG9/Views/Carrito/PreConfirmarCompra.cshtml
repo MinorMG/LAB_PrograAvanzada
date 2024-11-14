@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Confirmar Compra";
+    var carrito = ViewBag.Carrito as List<LabG9.Models.DetalleFactura>;
+    var direccionEntrega = ViewBag.DireccionEntrega as string;
+    var metodoPago = ViewBag.MetodoPago as string;
+}
+
+<h2>Confirmar Compra</h2>
+
+<div class="container">
+    <h4>Dirección de Entrega: @direccionEntrega</h4>
+    <h4>Método de Pago: @metodoPago</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in carrito)
+            {
+                <tr>
+                    <td>@detalle.Producto.Nombre</td>
+                    <td>@detalle.Cantidad</td>
+                    <td>@detalle.PrecioUnitario.ToString("C")</td>
+                    <td>@(detalle.Cantidad * detalle.PrecioUnitario)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4>Total: @carrito.Sum(d => d.Cantidad * d.PrecioUnitario)</h4>
+    <form action="@Url.Action("ConfirmarCompra", "Carrito")" method="post">
+        <button type="submit" class="btn btn-success">Confirmar Compra</button>
+    </form>
+</div>

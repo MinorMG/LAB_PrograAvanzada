@@ -1,0 +1,88 @@
+﻿@model IEnumerable<LabG9.Models.Producto>
+
+@{
+    ViewBag.Title = "GestionProductos";
+}
+
+<h2>GestionProductos</h2>
+
+
+@if (!Model.Any())
+{
+    <p>
+        @Html.ActionLink("Crear", "Crear", new { }, new { @class = "btn btn-outline-primary" })
+    </p>
+
+    <div class="container col-6 my-4">
+        <div class="justify-content-center">
+            <h2>No hay Productos disponibles.</h2>
+        </div>
+    </div>
+
+
+}
+else
+{
+
+    <p>
+        @Html.ActionLink("Crear", "Crear", new { }, new { @class = "btn btn-outline-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.NombreCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagenUrl)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.NombreCategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    <img src="@item.ImagenUrl" alt="Imagen del producto" style="width:100px; height:auto;" />
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.IdProducto }) |
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdProducto })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

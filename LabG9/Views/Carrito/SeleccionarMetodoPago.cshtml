@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "SeleccionarMetodoPago";
+}
+
+<h2>Seleccionar Método de Pago</h2>
+
+@using (Html.BeginForm("SeleccionarMetodoPago", "Carrito", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="MetodoPago">Método de Pago</label>
+        <select name="metodoPago" class="form-control" required>
+            <option value="ContraEntrega">Contra Entrega</option>
+            <option value="Tarjeta">Tarjeta</option>
+            <option value="SinpeMovil">SINPE Móvil</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Confirmar Método de Pago</button>
+}
+
