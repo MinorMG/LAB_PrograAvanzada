@@ -1,0 +1,58 @@
+﻿@model IEnumerable<LabG9.Models.Factura>
+
+@{
+    ViewBag.Title = "HistorialPedido";
+}
+
+<h2>Historial Pedidos @ViewBag.Nombre</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.nombreCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DireccionEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetodoPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.nombreCompleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaPedido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DireccionEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetodoPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Detalles", "DetalleFactura", new { id=item.IdFactura }, new{@class="btn btn-outline-success"})
+        </td>
+    </tr>
+}
+
+</table>

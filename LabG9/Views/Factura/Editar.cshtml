@@ -1,0 +1,48 @@
+﻿@model LabG9.Models.Factura
+
+@{
+    ViewBag.Title = "Editar Estado";
+}
+
+<h2>Editar Estado</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Factura</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.IdFactura)
+        @Html.HiddenFor(model => model.ClienteId)
+        @Html.HiddenFor(model => model.FechaPedido)
+        @Html.HiddenFor(model => model.DireccionEntrega)
+        @Html.HiddenFor(model => model.MetodoPago)
+        @Html.HiddenFor(model => model.totalFactura)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(
+                    model => model.Estado,
+                    new SelectList(new[] { "Pendiente", "En Proceso", "Entregado" }),
+                    "Seleccione un Estado",
+                    new { @class = "form-control", @name = "Estado" }
+                )
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 my-4">
+                <input type="submit" value="Guardar" class="btn btn-outline-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar", "Facturas", null, new { @class = "btn btn-outline-success" })
+</div>

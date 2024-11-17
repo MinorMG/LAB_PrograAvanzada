@@ -1,0 +1,21 @@
+﻿@model IEnumerable<LabG9.Models.ProductoVendido>
+
+<h2>Reporte de Productos Más Vendidos</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad Vendida</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Producto</td>
+                <td>@item.CantidadVendida</td>
+            </tr>
+        }
+    </tbody>
+</table>

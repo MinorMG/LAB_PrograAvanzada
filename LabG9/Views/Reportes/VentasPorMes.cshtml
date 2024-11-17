@@ -1,0 +1,21 @@
+﻿@model IEnumerable<LabG9.Models.VentasModelView>
+
+<h2>Reporte de Ventas por Mes</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mes</th>
+            <th>Total Ventas</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Mes</td>
+                <td>@item.TotalVentas.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

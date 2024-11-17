@@ -19,6 +19,22 @@ namespace LabG9.Controllers
             var productosDisponibles = context.Productos.Where(p => p.Estado == true).ToList();
             return View(productosDisponibles);
         }
+
+        [HttpGet]
+        public ActionResult FiltrarXCategoria(int? IdCategoria)
+        {
+            ViewBag.Categorias = context.Categorias.ToList();
+
+            if (IdCategoria == null)
+            {
+                ModelState.AddModelError("", "Seleccione una Categoría");
+                return RedirectToAction("Catalogo");
+            }
+
+            var productosDisponibles = context.Productos.Where(p => p.IdCategoria == IdCategoria && p.Estado == true).ToList();
+            return View(productosDisponibles);
+        }
+
         [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult GestionProductos()

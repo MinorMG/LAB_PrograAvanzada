@@ -1,28 +1,10 @@
 ﻿@model IEnumerable<LabG9.Models.Producto>
 
 @{
-    ViewBag.Title = "Catálogo de Productos";
+    ViewBag.Title = "FiltrarXCategoria";
 }
 
 <h2>Catálogo de Productos</h2>
-
-<div class="container-fluid">
-
-    <div class="row align-items-end mb-3">
-
-
-        @using (Html.BeginForm("FiltrarXCategoria", "Producto", FormMethod.Get, new { @class = "col-md-4" }))
-        {
-            <div class="form-group">
-                <label for="sala">Filtrar por Categoría:</label>
-                @Html.DropDownList("IdCategoria", new SelectList(ViewBag.Categorias, "IdCategoria", "NombreCategoria"), "Seleccione una Categoria", new { @class = "form-control" })
-            </div>
-            <button type="submit" class="btn btn-outline-primary my-4">Filtrar</button>
-        }
-
-
-    </div>
-</div>
 
 @if (!Model.Any())
 {
