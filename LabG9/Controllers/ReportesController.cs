@@ -11,7 +11,7 @@ namespace LabG9.Controllers
     {
 
         private ApplicationDbContext context = new ApplicationDbContext();
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult VentasPorMes()
         {
@@ -22,7 +22,7 @@ namespace LabG9.Controllers
             return View(reporte);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult ProductosMasVendidos()
         {

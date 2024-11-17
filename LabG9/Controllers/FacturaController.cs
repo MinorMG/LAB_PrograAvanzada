@@ -53,7 +53,7 @@ namespace LabG9.Controllers
         }
 
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Editar(int? id)
         {
@@ -65,7 +65,7 @@ namespace LabG9.Controllers
             return View(factura);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Editar(Factura factura)
         {
